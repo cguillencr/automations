@@ -15,3 +15,5 @@ To run the automation:
 1. Adjust the property deviceName in /commons/test_data.json, for an already existing device in your enviroment.
 2. Run appium server in port 4723
 3. Run the file /tests/mobil/promos_codes.py
+
+Checkout how it's looks like https://youtu.be/MDTomLnQIvA
