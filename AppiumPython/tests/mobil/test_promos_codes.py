@@ -1,12 +1,14 @@
-import unittest
-import xmlrunner as xmlrunner
+import pytest
 from mobil.welcome_page import WelcomePage
-from tests.EnvironmentSetup import EnvironmentSetup
 
 
-class InvalidPromoCodeTests(EnvironmentSetup):
+@pytest.mark.usefixtures("driver_get")
+class TestInvalidPromoCode:
 
-    def test_01_add_commic_to_cart(self):
+    comic_detail_page = None
+
+    @pytest.mark.dependency()
+    def test_01_add_commic_to_cart(self):#search_name, commic_name):
         welcome_page = WelcomePage(self.driver)
 
         featured_page = welcome_page.tap_no_yet_link()
@@ -20,10 +22,11 @@ class InvalidPromoCodeTests(EnvironmentSetup):
                             "after meeting a boy named Erick, who has quite peculiar philosophies but interesting " \
                             "about life time, so Kayrin will start to see things in a new way, but what kind of " \
                             "problems this new insight will bring?"
-        self.assertEqual(expected_synopsis, self.comic_detail_page.synopsis())
+        assert self.comic_detail_page.synopsis() == expected_synopsis
 
         self.comic_detail_page.add_to_cart()
 
+    @pytest.mark.dependency(depends=["TestInvalidPromoCode::test_01_add_commic_to_cart"])
     def test_02_add_invalid_promo_code(self):
 
         fake_promo_code = "Promo code"
@@ -33,12 +36,4 @@ class InvalidPromoCodeTests(EnvironmentSetup):
         current_text = cart_page.is_text_displayed_by_id("ShoppingCartItemsAdapter_PromoGiftCodeErrorText", 20).strip()
         expected_error_message ="We\'re sorry. We do not recognize the code you entered. " \
                                 "Please check the code and try again."
-        self.assertEqual(expected_error_message, current_text )
-
-
-if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(InvalidPromoCodeTests)
-    with open('test-reports/TC_001_InvalidPromoCodes.xml', 'wb') as output:
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output=output, verbosity=2, descriptions=False, failfast=True),
-            buffer=False, catchbreak=False)
+        assert current_text == expected_error_message
