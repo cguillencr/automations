@@ -1,7 +1,7 @@
 {
     "platformName": "Android",
     "deviceName": "LHBDU17921000275",
-    "app": "/targets/comicscom.apk",
+    "app": "comicscom.apk",
     "appPackage": "com.iconology.comics",
     "appActivity": "com.iconology.ui.navigation.RouterActivity",
     "appiumhub": "http://localhost:4723/wd/hub"
