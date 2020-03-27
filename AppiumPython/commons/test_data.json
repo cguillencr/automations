@@ -4,5 +4,13 @@
     "app": "comicscom.apk",
     "appPackage": "com.iconology.comics",
     "appActivity": "com.iconology.ui.navigation.RouterActivity",
-    "appiumhub": "http://localhost:4723/wd/hub"
+    "appiumhub": "http://localhost:4723/wd/hub",
+
+    "iosplatformName": "iOS",
+    "iosplatformVersion": "13.3",
+    "iosdeviceName": "iPhone 8 Plus",
+    "iosautomationName": "XCUITest",
+    "iosapp": "MySuperCoolApp.app"
+
+
 }

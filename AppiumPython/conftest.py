@@ -25,3 +25,25 @@ def driver_get(request):
     driver.quit()
 
     return driver
+
+@pytest.fixture(scope="class")
+def driver_ios_get(request):
+    driver = None
+    data = TestData.read_test_data_file()
+
+    ios_path = helper_path = os.path.abspath(os.path.join(os.path.dirname(
+        os.path.dirname(os.path.abspath(__file__)))))+os.sep+"AppiumPython"+os.sep+"targets"+os.sep+data['iosapp']
+
+    desired_caps = {}
+    desired_caps['platformName'] = data['iosplatformName'] #'iOS'
+    desired_caps['platformVersion'] = data['iosplatformVersion']  # '13.3'
+    desired_caps['deviceName'] = data['iosdeviceName'] #'iPhone 8 Plus'
+    desired_caps['app'] = ios_path #/Users/testeruser/Library/Developer/Xcode/DerivedData/MySuperCoolApp-aywnvwgtroyznscaysfxzrxgkjrd/Build/Products/Debug-iphonesimulator/MySuperCoolApp.app
+    driver = webdriver.Remote(data['appiumhub'], desired_caps) #'http://localhost:4723/wd/hub', desired_caps)
+
+    request.cls.driver = driver
+
+    yield
+    driver.quit()
+
+    return driver
