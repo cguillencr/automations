@@ -1,9 +1,9 @@
 # automations
 This repo has a basic automation example with Appium and Python for an Android app.
 
-#AppiumPython
+## AppiumPython
 
-#Android
+### Android
 
 This is an appium-python automation example which runs against comiXology Android app.  See  https://play.google.com/store/apps/details?id=com.iconology.comics&hl=es_419
 
@@ -22,7 +22,8 @@ To run the automation:
 
 Checkout how the automation looks in https://youtu.be/MDTomLnQIvA
 
-#IOs
+### IOs
+
 This is an appium-python automation example which runs against an IOs application.
 
 Following the "page model object" pattern, there is a folder /mobil/ios which has an .py file representing each page needed in the test cases. Plus, there is a test in /test/mobil/ios/test_nav_flow.py.
