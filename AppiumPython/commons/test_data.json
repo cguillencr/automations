@@ -10,7 +10,12 @@
     "iosplatformVersion": "13.3",
     "iosdeviceName": "iPhone 8 Plus",
     "iosautomationName": "XCUITest",
-    "iosapp": "MySuperCoolApp.app"
+    "iosapp": "MySuperCoolApp.app",
 
-
+    "sauce_labs_platformName": "Android",
+    "sauce_labs_platformVersion": "9",
+    "sauce_labs_phoneOnly": "false",
+    "sauce_labs_tabletOnly": "false",
+    "sauce_labs_privateDevicesOnly": "false",
+    "sauce_labs_appiumhub": "https://us1-manual.app.testobject.com/wd/hub"
 }
