@@ -36,3 +36,5 @@ To run the automation:
 
 Checkout how the automation looks in https://youtu.be/x-7bsxBC6ng
 
+### SauceLabs
+Create 2 enviroment variables "target" and "sauce_labs_testobject_api_key". If target has the key "saucelabs" it will run over saucelabs server and sauce_labs_testobject_api_key its the key generated in the automated testing tab on Saucelabs page.
